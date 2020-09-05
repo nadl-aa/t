@@ -1,0 +1,48 @@
+.btn
+{
+  float:right;
+
+}
+.text-primary
+{
+  font-weight: bolder;
+font-size: x-large;
+padding-top: 10%;
+}
+.text-info
+{
+  font-weight: bolder;
+  font-size: larger;
+}
+.user
+{
+  font-weight: bolder;
+  font-size: larger;
+  color: darkslateblue;
+}
+.start
+{
+  margin-top:10%;
+}
+.pre
+{
+  padding-top: 3%;
+  font-weight: bolder;
+  font-size: larger;
+}
+.req
+{
+  color:mediumslateblue;
+  font-weight: bolder;
+  font-size: larger;
+}
+.how
+{
+  color:mediumslateblue;
+  font-weight: bolder;
+  font-size: larger;
+}
+.container
+{
+  margin-top: 1px;
+}

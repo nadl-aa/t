@@ -1,0 +1,26 @@
+
+.ab
+{
+    padding-top: 20px;
+    font-weight: bolder;
+    font-size: x-large
+}
+
+.card
+{
+  margin-left: 0.01%;
+  float: left;
+  margin-bottom: 30%;
+  width:600px;
+  margin-top:10%;
+  @media screen and (max-width: 400px) {
+    margin-top: 10%;
+    margin-left: 1%;
+    width: 60%;
+    margin-bottom: 20%;
+    }
+}
+.card-title
+{
+  text-align: center;
+}

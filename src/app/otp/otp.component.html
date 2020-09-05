@@ -1,0 +1,47 @@
+<div class="authetication on-background backgroundAuthentication">
+
+  <div
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  fxLayout.lt-md="column"
+  fxFlexFill
+  class="row-height"
+
+>
+  <div fxFlex="50" class="header-div">
+    <header class="header">
+      <h1 class="h3 text-1"><b>Welcome</b></h1>
+      <p class="body-text-20 text-3">
+        Enter the details and start a journey with us
+      </p>
+    </header>
+  </div>
+  <div fxFlex="40" fxLayoutAlign="end" class="card-data">
+    <div class="card" >
+      <div class="card-body">
+        <h5 class="card-title"><b>OTP Verification</b></h5>
+       <p class="text-muted">OTP has been sent to the mobile number</p>
+<div class="row col-sm-6" style="max-width:350px;">
+<form [formGroup]="otpForm" (ngSubmit)="goToNextScreen(otpForm.value)" novalidate autocomplete="off">
+
+
+    <input formControlName="box1" placeholder="OTP" digit-only-input type="password" class="otp-box" required #box1 />
+    <p class="text-danger">{{data}}</p>
+  <p class="new-otp body-text-14 text-color-5" *ngIf="timervalue !== '' && !hideTimer">{{ currentTime }}</p>
+  <p class="resend-time" *ngIf="timervalue === '' && hideTimer">
+    <span class="otp-receive text-3 body-text-16">Didn’t receive OTP ?</span>
+    <span class="resend-otp body-text-18 text-2" (click)="resendOtp()"><b>Resend</b></span>
+  </p>
+  <button class="btn btn-primary" [disabled]="!otpForm.valid">
+    Verify
+  </button>
+</form>
+<br>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>

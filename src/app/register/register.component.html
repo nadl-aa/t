@@ -1,0 +1,109 @@
+
+<div *ngIf="isSignedUp; else signupForm">
+  Your registration is successful. Please login!
+</div>
+<ng-template #signupForm>
+  <div class="authetication on-background backgroundAuthentication">
+
+    <div
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayout.lt-md="column"
+    fxFlexFill
+    class="row-height"
+
+  >
+    <div fxFlex="50" class="header-div">
+      <header class="header">
+
+        <h2 class="h3 text-1"><b>Welcome</b> </h2>
+        <p class="body-text-20 text-3">
+          Enter the details and start a journey with us
+        </p>
+      </header>
+    </div>
+    <div fxFlex="40" fxLayoutAlign="end" class="card-data">
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title"><b>Create Your Account</b></h5>
+  <div class="row col-sm-6" style="max-width:450px;">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="radio-block">
+        <div class="radio-group " *ngFor="let item of userType">
+          <div>
+            <input type="radio" name="type" [value]="item" [(ngModel)]="selectedType" />
+            <label [for]="item" (click)="selectUserType(item)">
+              <img [src]="item.disabled" alt="disabled image" *ngIf="item.type !== selectedType" class="arrow-icon" />
+              <img [src]="item.enabled" alt="enabled image" *ngIf="item.type === selectedType" class="arrow-icon" />
+            </label>
+          </div>
+          <p class="label-radio">{{item.displayText}}</p>
+        </div>
+      </div>
+      <div class="form-group">
+      <!--  <label for="name">Your name</label>-->
+        <input type="text" class="form-control" placeholder="Full name*" name="name" [(ngModel)]="form.name" #name="ngModel" required />
+        <div *ngIf="f.submitted && name.invalid">
+          <div *ngIf="name.errors.required" class="text-danger">is a required field</div>
+        </div>
+      </div>
+    <!--  <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Username is required</div>
+        </div>
+      </div>-->
+
+      <div class="form-group">
+     <!--   <label for="mobile">Mobile</label>-->
+        <input type="text" class="form-control" placeholder="Mobile*"  name="mobile" [(ngModel)]="form.mobile" #mobile="ngModel" pattern="[0-9]*" required mobile minlength="10" maxlength="10" />
+        <div *ngIf="f.submitted && mobile.invalid">
+          <div *ngIf="mobile.errors.required" class="text-danger">is a required field </div>
+          <div *ngIf="mobile.errors.minlength">Mobile number must be  10 digit</div>
+          <div *ngIf="mobile.errors.maxlength">Mobile number must be  10 digit</div>
+          <div *ngIf="mobile.errors.mobile">Mobile number must be a valid mobile number</div>
+        </div>
+        <p class="text-muted">OTP will be sent to this mobile number</p>
+      </div>
+      <div class="form-group">
+      <!---  <label for="email">Email</label>-->
+        <input type="text" placeholder="e-mail*" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" required email />
+        <div *ngIf="f.submitted && email.invalid">
+          <div *ngIf="email.errors.required" class="text-danger">is a required field</div>
+          <div *ngIf="email.errors.email" class="text-danger">Email must be a valid email address</div>
+        </div>
+        <p class="text-muted">Activation Link will be sent on this E-mail address</p>
+    <!---    <span class="otp-receive text-3 body-text-16" (click)="resendOtp()">Sign In</span>-->
+      </div>
+
+      <!--
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+          required minlength="6" pattern="'(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]')" >
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </div>-->
+      <div class="form-group">
+        <button class="btn btn-primary">Next</button>
+        <div *ngIf="f.submitted && isSignUpFailed" class="text-success">
+          <br/>
+        </div>
+        <div *ngIf="f.submitted && !isSignUpFailed" class="text-danger">
+          <br/>{{data}}
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+  </div>
+  </div>
+  </div>
+
+</ng-template>

@@ -1,0 +1,450 @@
+
+<div class="container">
+  <a [download]="myFileName" [href]="fileUrl">Download</a>
+  <h4>Endpoint URL</h4>
+      <br>
+      <p>End point URL is <b>https://svc-services-proxy-sb-cluster.nadl.co.in/api/v1</b></p>
+      <br>
+      <h4>List Of APIs</h4>
+      <br>
+      <h4>FIU Journey</h4>
+      <br>
+      <p class="note"><b>All the following APIs as per the ReBIT specification</b></p>
+      <br>
+      <section class="py-5">
+
+        <ol class="pl-3">
+          <li class="mb-3"><b>Post Consent :</b></li>
+          This API is used by the FIU to raise consent on behalf of the customer for the customer's approval.<br> Customer receives a push notification for giving his approval.
+         <br>
+         <br>
+          POST: /Consent
+          <br>
+          <br>
+          Example Request
+          <br>
+          <br>
+          <div class="any">
+            {{ '{' }}
+            <br>
+            "ver": "1.0",
+            <br>
+            "timestamp": "2020-07-29T10:27:59.217Z",
+            <br>
+            "txnid": "4a4adbbe-29ae-11e8-a8d7-0289437bf331",
+            <br>
+            "ConsentDetail": {{ '{' }}
+            <br>
+              "consentStart": "2019-12-06T11:39:57.153Z",
+              <br>
+              "consentExpiry": "2019-12-06T11:39:57.153Z",
+              <br>
+              "consentMode": "VIEW",
+              <br>
+              "fetchType": "ONETIME",
+              <br>
+              "consentTypes": [<br>
+                "PROFILE"<br>
+              ],<br>
+              "fiTypes": [<br>
+                "DEPOSIT"<br>
+              ],<br>
+              "DataConsumer": {{ '{' }}<br>
+                "id": "fiu7465374537id"<br>
+                {{ '}' }},<br>
+              "Customer": {{ '{' }}<br>
+                "id": "customer_identifier@AA_identifier"<br>
+                {{ '}' }},<br>
+              "Purpose": {{ '{' }}<br>
+                "code": "101",<br>
+                "refUri": "https://api.rebit.org.in/aa/purpose/101.xml",<br>
+                "text": "Wealth management service",<br>
+                "Category": {{ '{' }}<br>
+                  "type": "string"<br>
+                  {{ '}' }}<br>
+                  {{ '}' }},<br>
+              "FIDataRange": {{ '{' }}<br>
+                "from": "2018-12-06T11:39:57.153Z",<br>
+                "to": "2019-12-06T11:39:57.153Z"<br>
+                {{ '}' }},<br>
+              "DataLife": {{ '{' }}<br>
+                "unit": "MONTH",<br>
+                "value": "string"<br>
+                {{ '}' }},<br>
+              "Frequency": {{ '{' }}<br>
+                "unit": "MONTH",<br>
+                "value": 0<br>
+                {{ '}' }},<br>
+              "DataFilter": [<br>
+              {{ '{' }}<br>
+                  "type": "TRANSACTIONAMOUNT",<br>
+                  "operator": ">=",<br>
+                  "value": 20000<br>
+                  {{ '}' }}<br>
+              ]<br>
+              {{ '}' }}<br>
+              {{ '}' }}<br>
+
+            </div>
+            <br>
+            Example response
+            <br>
+            <br>
+            <div class="anyr">
+              {{ '{' }}<br>
+                "ver": "1.0",<br>
+                "timestamp": "2018-12-06T11:39:57.153Z",<br>
+                "txnid": "4a4adbbe-29ae-11e8-a8d7-0289437bf331",<br>
+                "Customer":  {{ '{' }}<br>
+                  "id": "customer_identifier@AA_identifier"<br>
+                  {{ '}' }},<br>
+                "ConsentHandle": "39e108fe-9243-11e8-b9f2-0256d88baae8"<br>
+                {{ '}' }}
+
+              </div>
+              <br>
+              <br>
+              <li class="mb-3"><b>Consent Handle (consent/handle):</b></li>
+
+              This API is used by the FIU to know the current status of the consent.
+              <br>
+              <br>
+          GET: /Consent/handle/ {{ '{' }}consentHandle {{ '}' }}
+          <br>
+          <br>
+          No request body
+          <br>
+          <br>
+          Example response
+          <br>
+          <br>
+          <div class="anyr">
+            {{ '{' }}<br>
+            "ver": "1.0",<br>
+            "timestamp": "2018-12-06T11:39:57.153Z",<br>
+            "txnid": "795038d3-86fb-4d3a-a681-2d39e8f4fc3c",<br>
+            "ConsentHandle": "39e108fe-9243-11e8-b9f2-0256d88baae8",<br>
+            "ConsentStatus":  {{ '{' }}<br>
+              "id": "654024c8-29c8-11e8-8868-0289437bf331",<br>
+              "status": "READY"<br>
+              {{ '}' }}<br>
+              {{ '}' }}
+              </div>
+              <br>
+              <br>
+              <li class="mb-3"><b>Post Consent Notification (consent/notification):</b></li>
+              This notification will be received if the customer pauses/revokes/resumes the consent.
+              <br>
+              <br>
+          POST: /Consent/Notification
+          <br>
+          <br>
+          Example Request
+          <br>
+          <br>
+          <div class="anyr">
+            {{ '{' }}<br>
+              "ver": "1.0",<br>
+              "timestamp": "2018-12-06T11:39:57.153Z",<br>
+              "txnid": "0b811819-9044-4856-b0ee-8c88035f8858",<br>
+              "Notifier": {{ '{' }}<br>
+                "type": "FIP",<br>
+                "id": "FIP-1"<br>
+                {{ '}' }},<br>
+              "ConsentStatusNotification": {{ '{' }}<br>
+                "consentId": "XXXX0-XXXX-XXXX",<br>
+                "consentStatus": "REJECTED"<br>
+                {{ '}' }}<br>
+                {{ '}' }}
+                </div>
+                <br>
+                <br>
+                Example response
+                <br>
+              200: OK
+              <br>
+              <br>
+              <li class="mb-3"><b>Get Consent:</b></li>
+              This API is used by the FIU to know the full details of the consent including customer's masked<br> account number.
+              <br>
+              <br>
+              GET: /consent/ {{ '{' }}id{{ '}' }}
+              <br>
+              <br>
+              No request body
+              <br>
+              <br>
+              Example response
+              <br>
+              <br>
+              <div class="any">
+                {{ '{' }}<br>
+                "ver": "1.0",<br>
+  "txnid": "0b811819-9044-4856-b0ee-8c88035f8858",<br>
+  "consentId": "XXXX-XXXX-XXXX-XXXX",<br>
+  "status": "ACTIVE",<br>
+  "createTimestamp": "2018-12-06T11:39:57.153Z",<br>
+  "ConsentDetail": {{ '{' }}<br>
+    "consentStart": "2019-12-06T11:39:57.153Z",<br>
+    "consentExpiry": "2019-12-06T11:39:57.153Z",<br>
+    "consentMode": "VIEW",<br>
+    "fetchType": "ONETIME",<br>
+    "consentTypes": [<br>
+      "PROFILE"<br>
+    ],<br>
+    "fiTypes": [<br>
+      "DEPOSIT"<br>
+    ],<br>
+    "DataConsumer": {{ '{' }}<br>
+      "id": "DC1",<br>
+      "type": "AA"<br>
+      {{ '}' }},<br>
+    "DataProvider":  {{ '{' }}<br>
+      "id": "DP1",<br>
+      "type": "FIP"<br>
+      {{ '}' }},<br>
+    "Customer":  {{ '{' }}<br>
+      "id": "customer_identifier@AA_identifier"<br>
+      {{ '}' }},<br>
+    "Accounts": [<br>
+    {{ '{' }}<br>
+        "fiType": "DEPOSIT",<br>
+        "fipId": "FIP1",<br>
+        "accType": "SAVINGS",<br>
+        "linkRefNumber": "XXXX-XXXX-XXXX",<br>
+        "maskedAccNumber": "XXXXXXXX4020"<br>
+        {{ '}' }}<br>
+    ],<br>
+    "Purpose": <br>
+      "code": "101",<br>
+      "refUri": "https://api.rebit.org.in/aa/purpose/101.xml",<br>
+      "text": "Wealth management service",<br>
+      "Category":  {{ '{' }}<br>
+        "type": "string"<br>
+        {{ '}' }}<br>
+        {{ '}' }},<br>
+    "FIDataRange":  {{ '{' }}<br>
+      "from": "2017-07-13T11:33:34.509Z",<br>
+      "to": "2018-07-13T11:33:34.509Z"<br>
+      {{ '}' }},<br>
+    "DataLife":  {{ '{' }}<br>
+      "unit": "DAY",<br>
+      "value": 0<br>
+      {{ '}' }},<br>
+    "Frequency":  {{ '{' }}<br>
+      "unit": "HOUR",<br>
+      "value": 0<br>
+      {{ '}' }},<br>
+    "DataFilter": [<br>
+    {{ '{' }}<br>
+        "type": "TRANSACTIONAMOUNT",<br>
+        "operator": ">=",<br>
+        "value": 20000<br>
+        {{ '}' }}<br>
+    ]<br>
+    {{ '}' }},<br>
+  "consentDetailDigitalSignature": "Signature of AA as defined in W3C standards; Base64 encoded",<br>
+  "ConsentUse":  {{ '{' }}<br>
+    "logUri": "string",<br>
+    "count": 1,<br>
+    "lastUseDateTime": "2018-12-06T11:39:57.153Z"<br>
+    {{ '}' }}<br>
+    {{ '}' }}<br>
+     </div>
+     <br>
+     <br>
+     <li class="mb-3"><b>Request Data (FI/request):</b></li>
+     This API is for the FIU to request the data for the first time data request. Key materials needs to be<br> provided by the FIU in this API.
+     <br>
+     <br>
+     POST: /FI/request
+     <br>
+     <br>
+     Example Request
+     <br>
+     <br>
+     <div class="any">
+       {{ '{' }}
+       <br>
+       "ver": "1.0",<br>
+  "timestamp": "2018-12-06T11:39:57.153Z",<br>
+  "txnid": "e8cc6822-d4bb-4eb1-9e1b-4996fbff8acb",<br>
+  "FIDataRange":  {{ '{' }}<br>
+    "from": "2018-12-06T11:39:57.153Z",<br>
+    "to": "2019-12-06T11:39:57.153Z"<br>
+    {{ '}' }},<br>
+  "Consent":  {{ '{' }}<br>
+    "id": "654024c8-29c8-11e8-8868-0289437bf331",<br>
+    "digitalSignature": "Digital signature of the consentDetail section in the consent Artefact"<br>
+    {{ '}' }},<br>
+  "KeyMaterial":  {{ '{' }}<br>
+    "cryptoAlg": "ECDHE",<br>
+    "curve": "Curve25519",<br>
+    "params": "string",<br>
+    "DHPublicKey":  {{ '{' }}<br>
+      "expiry": "2018-12-06T11:39:57.153Z",<br>
+      "Parameters": "string",<br>
+      "KeyValue": "string"<br>
+      {{ '}' }},<br>
+    "Nonce": 0,<br>
+    "Signature": "Signature as defined in W3C standards; Base64 encoded"<br>
+    {{ '}' }}<br>
+    {{ '}' }}<br>
+    </div>
+    <br>
+    <br>
+    Example response
+    <br>
+    <br>
+    <div class="anyr">
+      {{ '{' }}<br>
+        "ver": "1.0",<br>
+        "timestamp": "2018-12-06T11:39:57.153Z",<br>
+        "txnid": "e8cc6822-d4bb-4eb1-9e1b-4996fbff8acb",<br>
+        "consentId": "654024c8-29c8-11e8-8868-0289437bf331",<br>
+        "sessionId": "caa2f259-2dc2-4075-87aa-6d81018b6183"<br>
+        {{ '}' }}
+    </div>
+
+    <br>
+    <br>
+    <li class="mb-3"><b>Post FI Notification (FI/notification):</b></li>
+    This API is used by the AA to notify the FIU about the availability of encrypted data.
+    <br>
+    <br>
+    POST: /FI/Notification
+    <br>
+    <br>
+    Example Request
+    <br>
+    <br>
+    <div class="any">
+      {{ '{' }}<br>
+        "ver": "1.0",<br>
+        "timestamp": "2018-12-06T11:39:57.153Z",<br>
+        "txnid": "0b811819-9044-4856-b0ee-8c88035f8858",<br>
+        "Notifier": {{ '{' }}<br>
+          "type": "FIP",<br>
+          "id": "FIP-1"<br>
+        },<br>
+        "FIStatusNotification": {{ '{' }}<br>
+          "sessionId": "XXXX0-XXXX-XXXX",<br>
+          "sessionStatus": "ACTIVE",<br>
+          "FIStatusResponse": [<br>
+          {{ '{' }}<br>
+              "fipID": "FIP-1",<br>
+              "Accounts": [<br>
+              {{ '{' }}<br>
+                  "linkRefNumber": "XXXX-XXXX-XXXX",<br>
+                  "FIStatus": "READY",<br>
+                  "description": ""<br>
+                }<br>
+              ]<br>
+            }<br>
+          ]<br>
+        }<br>
+      }
+      <br>
+      </div>
+      <br>
+      <br>
+      Example response
+      <br>
+    200: OK
+    <br>
+    <br>
+    <li class="mb-3"><b>Fetch Data (FI/fetch):</b></li>
+    This API is used by the FIU to fetch the data from the AA to the FIU app.
+    <br>
+    <br>
+    GET: /FI/fetch/{{ '{' }}sessionId{{ '}' }}
+    <br>
+    <br>
+    Parameters
+    <br>
+    <br>
+    1. sessionId     : Session ID for the FI Request Session<br>
+    2. fipId         : FIP ID as defined in the Account Aggregator Ecosystem. Maximum 1.<br>
+    3. linkRefNumber : linkRefNumber/s for the accounts to be fetched from particular FIP.<br> Supports more than 1.<br>
+   <br>
+    No request body
+    <br>
+    <br>
+      Example response
+      <br>
+      <br>
+      <div class="anyr">
+        {{ '{' }}<br>
+          "ver": "1.0",<br>
+          "timestamp": "2018-12-06T11:39:57.153Z",<br>
+          "txnid": "3dd436f8-0747-4a8f-9001-375e419430be",<br>
+          "FI": [<br>
+          {{ '{' }}<br>
+              "fipID": "FIP-1",<br>
+              "data": [<br>
+              {{ '{' }}<br>
+                  "linkRefNumber": "XXXX-XXXX-XXXX",<br>
+                  "maskedAccNumber": "XXXXXXXX4020",<br>
+                  "encryptedFI": "string"<br>
+                  {{ '}' }}<br>
+              ],<br>
+              "KeyMaterial": {{ '{' }}<br>
+                "cryptoAlg": "ECDHE",<br>
+                "curve": "Curve25519",<br>
+                "params": "string",<br>
+                "DHPublicKey": {{ '{' }}<br>
+                  "expiry": "2018-12-06T11:39:57.153Z",<br>
+                  "Parameters": "string",<br>
+                  "KeyValue": "string"<br>
+                  {{ '}' }},<br>
+                "Nonce": 0,<br>
+                "Signature": "Signature as defined in W3C standards; Base64 encoded"<br>
+                {{ '}' }}<br>
+                {{ '}' }}<br>
+          ]<br>
+          {{ '}' }}
+          </div>
+          <br>
+          <br>
+          <li class="mb-3"><b>Heartbeat:</b></li>
+          This API is used the FIU to check the availability of the Aas.
+          <br>
+          <br>
+          GET: /Heartbeat
+          <br>
+          <br>
+          No request body
+          <br>
+          <br>
+            Example response
+            <br>
+            <br>
+            <div class="anyr">
+              {{ '{' }}<br>
+                "ver": "1.0",<br>
+                "timestamp": "2018-12-06T11:39:57.153Z",<br>
+                "Status": "UP",<br>
+                "Error": {{ '{' }}<br>
+                  "code": 0,<br>
+                  "msg": "string",<br>
+                  "detail": "string"<br>
+                  {{ '}' }}<br>
+                  {{ '}' }}
+                  </div>
+      </ol>
+      </section>
+      </div>
+      <br>
+      <a [download]="myFileName" [href]="fileUrl">Download</a>
+      <!--
+      <hr>
+      <footer class="page-footer font-small blue">
+
+
+        <div class="footer-copyright text-center py-3">© 2020 Copyright NADL:
+
+        </div>
+        <!-- Copyright
+
+      </footer>
+!-->

@@ -1,0 +1,26 @@
+
+.card-title
+{
+  text-align: center;
+}
+ .c
+{
+
+  margin-bottom:50%;
+  padding-bottom: 90%;
+  //float:right;
+  margin-left: 20;
+}
+
+.card
+{
+  margin-left: 55%;
+  margin-top: 10%;
+  width: 60%;
+  @media screen and (max-width: 400px) {
+    margin-top: 30%;
+    margin-left: 25%;
+    width: 140%;
+    margin-bottom: 20%;
+  }
+}

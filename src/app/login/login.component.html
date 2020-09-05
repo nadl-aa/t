@@ -1,0 +1,59 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  <app-home></app-home>
+
+</div>
+<ng-template #loggedOut>
+  <div class="authetication on-background backgroundAuthentication">
+
+  <div
+class="wrapper"
+>
+  <div class="headerData">
+    <header >
+      <h1 class="h3 text-1"><b>Welcome</b> </h1>
+      <p class="body-text-20 text-3">
+        Enter the details and start a journey with us
+      </p>
+    </header>
+  </div>
+  <div  >
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title"><b>Sign In</b></h3>
+  <div class="row col-sm-6" style="max-width:450px;">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Login Id*" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required" class="text-danger"> is a required field</div>
+        </div>
+      </div>
+      <div class="form-group">
+
+        <input type="password" class="form-control" name="password" placeholder="Password*" [(ngModel)]="form.password" #password="ngModel"
+          required minlength="8" />
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required" class="text-danger"> is a required field</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Login</button>
+        <br>
+        <a routerLink="forgot" class="">Forgot Password?</a>
+        <div *ngIf="f.submitted && isLoginFailed" class="text-danger">
+        {{errorMessage}}
+        </div>
+      </div>
+    </form>
+</div>
+</div>
+<span>
+    <a href="signup" class="btn btn-success">Sign Up</a></span>
+  </div>
+
+</div>
+</div>
+</div>
+</ng-template>

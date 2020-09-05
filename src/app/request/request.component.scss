@@ -1,0 +1,53 @@
+.req
+{
+  color: blueviolet;
+  font-weight: bolder;
+  font-size: x-large;
+  padding-top: 6%;
+}
+.api
+{
+  color: cornflowerblue;
+  font-weight: bolder;
+  font-size: larger;
+  margin-left: 10%;
+}
+.header
+{
+  margin-left: 50%;
+  @media screen and (max-width: 400px) {
+    padding-top: 30%;
+    margin-left: 10%;
+  }
+}
+.card
+{
+  margin-right: 20%;
+  margin-top: 10%;
+  width: 60%;
+  @media screen and (max-width: 400px) {
+    margin-top: 30%;
+    margin-left: 15%;
+    width: 400px;
+    margin-bottom: 20%;
+  }
+}
+.form-control
+{
+  width: 120%;
+}
+.text-1
+{
+  font-size: xx-large;
+}
+.c{
+  margin-right: 20%;
+  margin-top: 10%;
+  width: 370px;
+  @media screen and (max-width: 400px) {
+    margin-top: 30%;
+    margin-left: 15%;
+    width: 250px;
+    margin-bottom: 20%;
+  }
+}

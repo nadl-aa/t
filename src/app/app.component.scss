@@ -1,0 +1,27 @@
+.navbar-brand{
+color:#000;
+font-weight: bolder;
+font-size: larger;
+padding-left: 5%;
+@media screen and (max-width: 400px) {
+padding-left: 0px;
+}
+}
+.navbar-text
+{
+  @media screen and (max-width: 400px) {
+    margin-top: 20px;
+    }
+}
+.navbar-nav > li{
+  padding-left:30px;
+  padding-right:30px;
+  padding-top: 3px;
+  font-size: 13px;
+  font-weight: bolder;
+
+}
+.container
+{
+  display: flex;
+}

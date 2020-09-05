@@ -1,0 +1,230 @@
+/*.main
+{
+  margin-top: 30%;
+}
+.mains
+{
+  margin-top: 40%;
+}
+.resend-otp {
+          cursor: pointer;
+          letter-spacing: -0.3px;
+        }
+        .text-success
+        {
+          font-weight: bolder;
+          font-size: x-large;
+        }
+        .authetication {
+          .header-border {
+            border-bottom: 1px solid #4a4a4a;
+            opacity: 0.1;
+          }
+          .container {
+            max-width: 1210px;
+            padding: 0 50px;
+            margin: 0 auto;
+            min-height: calc(100vh - 30px - 85px);
+            display: flex;
+            align-items: center;
+            @media screen and (max-width: 400px) {
+              padding: 0;
+            }
+            .header {
+              text-align: center;
+              max-width: 380px;
+              margin: 0 auto;
+
+              h3 {
+                padding: 70px 0 0;
+                line-height: normal;
+              }
+
+              p {
+                line-height: 1.8;
+                padding-top: 10px;
+              }
+            }
+          }
+          .card-data {
+            margin: 40px 0;
+          }
+        }
+
+        .row-height {
+          height: 100%;
+        }
+
+        @media screen and (max-width: 960px) {
+          .header-div {
+            max-height: 30% !important;
+            margin-bottom: 29px;
+          }
+          .authetication {
+            height: auto;
+          }
+          .row-height {
+            padding: 10px;
+          }
+        }
+
+        .display-card-center {
+          margin: 0 auto;
+        }
+        .card {
+          width: 460px;
+          padding-left: 0;
+          padding-right: 0;
+
+          .title {
+            padding: 45px 0 0px;
+            text-align: center;
+          }
+
+          form {
+            padding: 0 35px;
+          }
+          .forgot {
+            cursor: pointer;
+            outline: 0;
+            display: flex;
+          }
+
+          .registration-button {
+            padding: 20px 0;
+
+            .signIn {
+              align-self: center;
+
+              a {
+                text-decoration: none;
+              }
+            }
+          }
+
+          .input-block {
+            position: relative;
+
+            .nadl-text {
+              position: absolute;
+              bottom: 45px;
+              right: -24px;
+
+              span {
+                padding-right: 40px;
+              }
+            }
+
+            .img-block {
+              position: absolute;
+              bottom: 55px;
+              right: 10px;
+            }
+          }
+        }
+        .radio-block {
+          padding: 10px 30px 30px;
+          display: flex;
+          place-content: center;
+          justify-content: center;
+          .radio-group {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            &:first-child {
+              padding-right: 40px;
+            }
+          }
+          input[type='radio'] + label {
+            padding-top: 0px;
+            background: transparent;
+            padding-left: 0;
+          }
+        }
+
+        .arrow-icon {
+          cursor: pointer;
+        }
+
+        @media screen and (max-width: 460px) {
+          .card {
+            width: 100%;
+          }
+          .button {
+            padding: 6px 19px !important;
+          }
+          .radio-block {
+            padding: 30px 10px;
+            .radio-group {
+              padding-right: 0px;
+            }
+          }
+        }
+        .mat
+        {
+          width: 90%;
+        }*/
+        .card
+        {
+          margin-right: 10%;
+          margin-top: 4%;
+          width: 260px;
+          @media screen and (max-width: 400px) {
+            margin-top: 10%;
+            margin-left: 10%;
+            width: 120%;
+            margin-bottom: 30%;
+          }
+        }
+.header
+{
+  margin-left: 50%;
+  @media screen and (max-width: 400px) {
+    padding-top: 30%;
+    margin-left: 10%;
+
+  }
+}
+        .card-title
+        {
+          text-align: center;
+        }
+.text-muted
+{
+  padding-left: 10%;
+}
+.text-danger
+{
+  text-align: center;
+}
+.btn
+{
+  margin-left: 35%;
+}
+.text-1
+{
+  font-size: xx-large;
+}
+
+.new-otp
+{
+  @media screen and (max-width: 400px) {
+  padding-top: 8px;
+}
+}
+.text-muted
+{
+  @media screen and (max-width: 400px) {
+    margin-left: 6px;
+}
+}
+.card-title
+{
+  @media screen and (max-width: 400px) {
+    padding-left: 3%;
+}
+}
+.resend-otp {
+  cursor: pointer;
+  letter-spacing: -0.3px;
+}

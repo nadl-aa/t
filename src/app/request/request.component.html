@@ -1,0 +1,119 @@
+<div *ngIf="isregistered; else requestForm">
+  <div class="authetication on-background backgroundAuthentication">
+    <div
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayout.lt-md="column"
+    fxFlexFill
+    class="row-height"
+
+  >
+
+
+    <div fxFlex="30" class="header-div">
+      <header class="header">
+
+        <h3 class="h3 text-1"></h3>
+      </header>
+    </div>
+    <div class="container">
+      <div class="card c" >
+        <div class="card-body">
+      <p class="ab">Your server and key details are submitted successfully.</p>
+         <p class="text">You can find API call details<a routerLink="api" class=""><b> Here</b></a> </p>
+
+  </div>
+  </div>
+  </div>
+   </div>
+</div>
+</div>
+
+<ng-template #requestForm>
+
+  <div class="authetication on-background backgroundAuthentication">
+
+    <div
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayout.lt-md="column"
+    fxFlexFill
+    class="row-height"
+
+  >
+    <div fxFlex="50" class="header-div">
+      <header class="header">
+
+        <h1 class="h3 text-1"><b>Welcome</b> </h1>
+        <p class="body-text-20 text-3">
+          Enter the details and start a journey with us
+        </p>
+      </header>
+    </div>
+    <div fxFlex="50" fxLayoutAlign="end" class="card-data">
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title"><b>Server and Key Details of {{name}}</b></h5>
+  <div class="row col-sm-6" style="max-width:350px;">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Base URL*" name="baseurl" [(ngModel)]="form.baseurl" #baseurl="ngModel"
+          required />
+        <div *ngIf="f.submitted && baseurl.invalid">
+          <div *ngIf="baseurl.errors.required" class="text-danger"> is a required field</div>
+        </div>
+      </div>
+      <div class="form-group">
+
+        <input type="text" class="form-control" placeholder="IP Address*" name="ip" [(ngModel)]="form.ip" #ip="ngModel" required jobrole />
+        <div *ngIf="f.submitted && ip.invalid">
+          <div *ngIf="ip.errors.required " class="text-danger">is a required field</div>
+
+</div>
+      </div>
+
+      <div class="form-group">
+
+        <input type="textbox" class="form-control" placeholder="Port*" name="endpoint" [(ngModel)]="form.port" #port="ngModel" required port />
+        <div *ngIf="f.submitted && port.invalid">
+        <div *ngIf="port.errors.required " class="text-danger">is a required field</div>
+        </div>
+      </div>
+      <div class="form-group">
+
+        <input type="text" class="form-control" placeholder="AA API Key*" name="aaapikey" [(ngModel)]="form.aaapikey" #aaapikey="ngModel" required
+        aaapikey  />
+        <div *ngIf="f.submitted && aaapikey.invalid">
+          <div *ngIf="aaapikey.errors.required " class="text-danger">is a required field</div>
+        </div>
+        </div>
+        <div class="form-group">
+
+          <input type="text" class="form-control" placeholder="Public Key*" name="publickey" [(ngModel)]="form.publickey" #publickey="ngModel" required
+          publickey  />
+          <div *ngIf="f.submitted && publickey.invalid">
+            <div *ngIf="publickey.errors.required" class="text-danger">is a required field</div>
+          </div>
+          </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Register</button>
+        <div *ngIf="f.submitted && isregistered" class="success">
+          <br/>{{data}}
+                  </div>
+                  <div *ngIf="f.submitted && !isregistered" class="text-danger">
+                    <br/>{{data}}
+                            </div>
+      </div>
+    </form>
+  </div>
+    </div>
+    </div>
+    </div>
+
+  </div>
+  </div>
+
+  </ng-template>
+
+
+

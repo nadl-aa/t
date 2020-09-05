@@ -1,0 +1,78 @@
+body {
+  background: linear-gradient(70deg, #e6e6e6, #f7f7f7);
+  color: #514B64;
+  min-height: 100vh;
+}
+.navbar-brand
+{
+    font-weight: bolder;
+    font-size: x-large;
+    color: #000;
+}
+.navbar
+{
+    position: fixed;
+}
+.any
+{
+    width: 80%;
+    height: 250px;
+    overflow-y: scroll;
+    background-color: cornsilk;
+}
+.anyr
+{
+  width: 80%;
+  height: 150px;
+  overflow-y: scroll;
+  background-color: cornsilk;
+}
+
+code {
+  background: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  margin: 0 0.3rem;
+}
+.navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
+    padding-top: 30px;
+    font-size: 13px;
+    font-weight: bolder;
+    color: darkblue;
+  }
+  .pre{
+      font-weight: bolder;
+      font-size: larger;
+  }
+  .container
+  {
+      width: 78%;
+      margin-top:10%;
+
+  }
+  .navbar
+  {
+      padding-left: 0.01%;
+  }
+  .panel
+  {
+      width: 65%;
+  }
+ .next
+ {
+     margin-left: 0px;
+     padding-top: 800px;
+     font-weight: bolder;
+ }
+ .head
+ {
+     font-size: x-large;
+     padding-left: 12%;
+     padding-top: 10%;
+ }
+ .text
+ {
+     padding-top: 10%;
+ }
